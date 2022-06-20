@@ -1,8 +1,8 @@
-import { PrismaClient, Prisma } from '@prisma/client'
+import { PrismaClient, Prisma } from '@prisma/client';
 
-const prisma = new PrismaClient()
+const prisma = new PrismaClient();
 
-const userData: Prisma.CustomerCreateInput[] =  [
+const userData: Prisma.CustomerCreateInput[] = [
   {
     firstName: 'Cyrillus',
     lastName: 'Biddlecombe',
@@ -14,6 +14,12 @@ const userData: Prisma.CustomerCreateInput[] =  [
         status: 'PENDING',
         startDate: '2017-04-26T05:32:06Z',
       },
+      // family: {
+      //   create: {
+      //     hasChildren: true,
+      //     hasParents: true,
+      //   }
+      // }
     },
   },
   {
@@ -265,23 +271,24 @@ const userData: Prisma.CustomerCreateInput[] =  [
   },
 ];
 
-
 async function main() {
-  console.log(`Start seeding ...`)
+  console.log(`Start seeding ...`);
+  await prisma.policy.deleteMany({});
+  await prisma.customer.deleteMany({});
   for (const u of userData) {
     const user = await prisma.customer.create({
       data: u,
-    })
-    console.log(`Created user with id: ${user.id}`)
+    });
+    console.log(`Created user with id: ${user.id}`);
   }
-  console.log(`Seeding finished.`)
+  console.log(`Seeding finished.`);
 }
 
 main()
   .catch((e) => {
-    console.error(e)
-    process.exit(1)
+    console.error(e);
+    process.exit(1);
   })
   .finally(async () => {
-    await prisma.$disconnect()
-  })
+    await prisma.$disconnect();
+  });
