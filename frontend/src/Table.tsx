@@ -2,11 +2,13 @@ import TableRow from './TableRow';
 
 import { useAppSelector } from './hooks';
 import { selectPolicies } from './features/search/policiesSlice';
+import { useNavigate } from 'react-router-dom';
+
 
 const Table = () => {
 
   const policies = useAppSelector(selectPolicies);
-  console.log(policies, 'state from policies');
+  const navigate = useNavigate();
 
   return (
     <div className='flex flex-col'>
@@ -49,11 +51,16 @@ const Table = () => {
                 </tr>
               </thead>
               <tbody>
-                {policies.length === 0
+                {policies?.length === 0
                   ? 'No data found'
-                  : policies
-                      .map((policy: any, id) => (
-                      <TableRow key={policy.id} policy={policy} id={id} />
+                  : policies.map((policy, id) => (
+                      <tr
+                        className='border-b hover:bg-gray-100'
+                        key={id}
+                        onClick={() => navigate(`/${policy.customer.lastName}`)}
+                      >
+                        <TableRow policy={policy} id={id} />
+                      </tr>
                     ))}
               </tbody>
             </table>

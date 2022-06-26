@@ -113,11 +113,27 @@ Feel free to update or add more endpoints to accommodate or improve your solutio
 ## General questions
 
 - How much time did you spend working on the solution?
+
+  2 weeks;
+
 - What’s the part of the solution you are most proud of?
 
-  _You can share a code snippet here if you feel like it_
+  I'm proud of managing to implement Redux Toolkit state. I first learned it for my final project and I'm happy that I could do it again, from scratch.
+  
+      export const searchPoliciesSlice = createSlice({
+        name: 'policies',
+        initialState,
+        reducers: {
+          setPolicies: (state, action: PayloadAction<Search[]>) => {
+              state.search = action.payload;
+            },
+        },
+      }); 
 
 - If you had more time, what other things you would like to do?
+
+  I would like to transform the detail component in an expandable component inside the table, create some authentication and add the possibility to create/edit/delete the policies and migrate the HTTP queries from axios to RTK Query.
+
 - Do you have any feedback regarding this coding challenge?  
 
-  _Is the initial setup working?, is something missing?, or any other comment_
+  At first, I didn't quite understand that I had to first create the Family table myself in order to be able to filter/show it. I saw that for the backend challenge it was explicitly said that it should be created, but for the full stack it was only said that we had to be able to filter.

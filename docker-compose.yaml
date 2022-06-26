@@ -7,16 +7,14 @@ services:
       - ./backend/.env
     image: postgres:13.4
     ports:
-      # - "5432:${DATABASE_PORT}"
-      - "5432:5432"
+      - "5432:${DATABASE_PORT}"
+      
 
     environment:
-      # - POSTGRES_USER=${DATABASE_USER}
-      # - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
-      # - POSTGRES_DB=${DATABASE_NAME}
-      - POSTGRES_USER=admin
-      - POSTGRES_PASSWORD=TWm8bP@!xe9cCiaz2B$e
-      - POSTGRES_DB=dev
+      - POSTGRES_USER=${DATABASE_USER}
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+      - POSTGRES_DB=${DATABASE_NAME}
+      
 
 
   backend:
