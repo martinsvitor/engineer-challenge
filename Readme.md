@@ -45,7 +45,7 @@ docker-compose build
 docker-compose up
 ```
 
-4. On a new texerminal, run the migration and the seed script to add initial data:
+4. On a new terminal, run the migration and the seed script to add initial data:
 
 ```bash
 cd backend
