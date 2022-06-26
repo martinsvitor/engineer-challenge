@@ -1,5 +1,5 @@
-import express from 'express';
-import { PrismaClient, Prisma, InsuranceType } from '@prisma/client';
+import express, { Request, Response } from 'express';
+import { PrismaClient, Prisma, InsuranceType } from './generated/client';
 
 const app = express();
 const port = 4000;
@@ -18,13 +18,8 @@ let allowCrossDomain = function (
 };
 app.use(allowCrossDomain);
 
-app.get('/policies', async (req, res) => {
-  // console.log('req query ===== ', req.query)
+app.get('/policies', async (req: Request, res: Response) => {
   const { search } = req.query;
-  console.log(search);
-  // const all_policies = await prisma.policy.findMany();
-  // const all_customers = await prisma.customer.findMany();
-  // console.log(all_customers, all_policies);
 
   const or: Prisma.PolicyWhereInput = search
     ? {
@@ -37,23 +32,54 @@ app.get('/policies', async (req, res) => {
           },
           {
             customer: {
+              family: {
+                some: {
+                  firstName: {
+                    contains: search as string,
+                    mode: 'insensitive',
+                  },
+                },
+              },
+            },
+          },
+          {
+            customer: {
               lastName: { contains: search as string, mode: 'insensitive' },
+            },
+          },
+          {
+            customer: {
+              family: {
+                some: {
+                  lastName: {
+                    contains: search as string,
+                    mode: 'insensitive',
+                  },
+                },
+              },
             },
           },
         ],
       }
     : {};
-
-  // const and: Prisma.PolicyWhereInput = search
-  //   ? {
-  //       AND: [{ insuranceType: { equals: search as InsuranceType } }],
-  //     }
-  //   : {};
+  let isInsType = false;
+  if (search === 'LIABILITY' || search === 'HEALTH' || search === 'HOUSEHOLD') {
+    isInsType = true;
+  }
+  const also: Prisma.PolicyWhereInput = isInsType
+    ? {
+        OR: [{ insuranceType: { equals: search as InsuranceType } }],
+      }
+    : {};
 
   const policies = await prisma.policy.findMany({
     where: {
       ...or,
-      // ...and,
+      ...also,
+
+      status: {
+        in: ['ACTIVE', 'PENDING'],
+      },
     },
     select: {
       id: true,
@@ -68,6 +94,7 @@ app.get('/policies', async (req, res) => {
           firstName: true,
           lastName: true,
           dateOfBirth: true,
+          family: true,
         },
       },
     },

@@ -2,7 +2,7 @@ import { PrismaClient, Prisma } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-const userData: Prisma.CustomerCreateInput[] = [
+const userData: any[] = [
   {
     firstName: 'Cyrillus',
     lastName: 'Biddlecombe',
@@ -14,12 +14,12 @@ const userData: Prisma.CustomerCreateInput[] = [
         status: 'PENDING',
         startDate: '2017-04-26T05:32:06Z',
       },
-      // family: {
-      //   create: {
-      //     hasChildren: true,
-      //     hasParents: true,
-      //   }
-      // }
+    },
+    family: {
+      create: {
+        firstName: 'Nanni',
+        lastName: 'Biddlecombe',
+      },
     },
   },
   {
@@ -32,6 +32,12 @@ const userData: Prisma.CustomerCreateInput[] = [
         insuranceType: 'LIABILITY',
         status: 'PENDING',
         startDate: '2015-01-13T04:52:15Z',
+      },
+    },
+    family: {
+      create: {
+        firstName: 'Liane',
+        lastName: 'Harbour',
       },
     },
   },
@@ -47,6 +53,12 @@ const userData: Prisma.CustomerCreateInput[] = [
         startDate: '2014-07-14T00:54:34Z',
       },
     },
+    family: {
+      create: {
+        firstName: 'Sonny',
+        lastName: 'Harber',
+      },
+    },
   },
   {
     firstName: 'Aguste',
@@ -58,6 +70,12 @@ const userData: Prisma.CustomerCreateInput[] = [
         insuranceType: 'HEALTH',
         status: 'PENDING',
         startDate: '2020-07-21T19:40:35Z',
+      },
+    },
+    family: {
+      create: {
+        firstName: 'Lay',
+        lastName: 'Bilsford',
       },
     },
   },
@@ -73,6 +91,12 @@ const userData: Prisma.CustomerCreateInput[] = [
         startDate: '2013-03-30T19:27:54Z',
       },
     },
+    family: {
+      create: {
+        firstName: 'Amery',
+        lastName: 'Ballay',
+      },
+    },
   },
   {
     firstName: 'Brandyn',
@@ -84,6 +108,12 @@ const userData: Prisma.CustomerCreateInput[] = [
         insuranceType: 'HEALTH',
         status: 'CANCELLED',
         startDate: '2021-01-12T19:24:41Z',
+      },
+    },
+    family: {
+      create: {
+        firstName: 'Astrid',
+        lastName: 'Argyle',
       },
     },
   },
@@ -99,6 +129,12 @@ const userData: Prisma.CustomerCreateInput[] = [
         startDate: '2018-05-11T11:56:51Z',
       },
     },
+    family: {
+      create: {
+        firstName: 'Jaimie',
+        lastName: 'Erasmus',
+      },
+    },
   },
   {
     firstName: 'Galvan',
@@ -110,6 +146,12 @@ const userData: Prisma.CustomerCreateInput[] = [
         insuranceType: 'HOUSEHOLD',
         status: 'PENDING',
         startDate: '2013-01-25T04:14:34Z',
+      },
+    },
+    family: {
+      create: {
+        firstName: 'Willy',
+        lastName: 'Suggey',
       },
     },
   },
@@ -125,6 +167,12 @@ const userData: Prisma.CustomerCreateInput[] = [
         startDate: '2012-09-24T09:55:17Z',
       },
     },
+    family: {
+      create: {
+        firstName: 'Leoine',
+        lastName: 'Nipper',
+      },
+    },
   },
   {
     firstName: 'Flossie',
@@ -136,6 +184,12 @@ const userData: Prisma.CustomerCreateInput[] = [
         insuranceType: 'HEALTH',
         status: 'PENDING',
         startDate: '2020-05-02T05:53:46Z',
+      },
+    },
+    family: {
+      create: {
+        firstName: 'Yves',
+        lastName: 'Camings',
       },
     },
   },
@@ -151,6 +205,12 @@ const userData: Prisma.CustomerCreateInput[] = [
         startDate: '2022-01-12T17:47:41Z',
       },
     },
+    family: {
+      create: {
+        firstName: 'Jakob',
+        lastName: 'Gildersleeve',
+      },
+    },
   },
   {
     firstName: 'Amanda',
@@ -162,6 +222,12 @@ const userData: Prisma.CustomerCreateInput[] = [
         insuranceType: 'HEALTH',
         status: 'ACTIVE',
         startDate: '2012-07-04T15:31:29Z',
+      },
+    },
+    family: {
+      create: {
+        firstName: 'Hillard',
+        lastName: 'McPherson',
       },
     },
   },
@@ -177,6 +243,12 @@ const userData: Prisma.CustomerCreateInput[] = [
         startDate: '2012-08-01T03:25:59Z',
       },
     },
+    family: {
+      create: {
+        firstName: 'Anders',
+        lastName: 'Benda',
+      },
+    },
   },
   {
     firstName: 'Yoko',
@@ -188,6 +260,12 @@ const userData: Prisma.CustomerCreateInput[] = [
         insuranceType: 'LIABILITY',
         status: 'DROPPED_OUT',
         startDate: '2014-02-22T06:02:58Z',
+      },
+    },
+    family: {
+      create: {
+        firstName: 'Axe',
+        lastName: 'Becker',
       },
     },
   },
@@ -203,6 +281,12 @@ const userData: Prisma.CustomerCreateInput[] = [
         startDate: '2014-04-14T12:39:02Z',
       },
     },
+    family: {
+      create: {
+        firstName: 'Zonnya',
+        lastName: 'Penni',
+      },
+    },
   },
   {
     firstName: 'Jeffie',
@@ -214,6 +298,12 @@ const userData: Prisma.CustomerCreateInput[] = [
         insuranceType: 'HOUSEHOLD',
         status: 'DROPPED_OUT',
         startDate: '2017-05-28T11:56:27Z',
+      },
+    },
+    family: {
+      create: {
+        firstName: 'Alvis',
+        lastName: 'Pinyon',
       },
     },
   },
@@ -229,6 +319,12 @@ const userData: Prisma.CustomerCreateInput[] = [
         startDate: '2012-03-29T01:59:13Z',
       },
     },
+    family: {
+      create: {
+        firstName: 'Sven',
+        lastName: 'Cristofanini',
+      },
+    },
   },
   {
     firstName: 'Jess',
@@ -240,6 +336,12 @@ const userData: Prisma.CustomerCreateInput[] = [
         insuranceType: 'LIABILITY',
         status: 'PENDING',
         startDate: '2013-11-15T09:58:45Z',
+      },
+    },
+    family: {
+      create: {
+        firstName: 'Jere',
+        lastName: 'Whittle',
       },
     },
   },
@@ -255,6 +357,12 @@ const userData: Prisma.CustomerCreateInput[] = [
         startDate: '2020-08-16T03:24:30Z',
       },
     },
+    family: {
+      create: {
+        firstName: 'Desmond',
+        lastName: 'Ternent',
+      },
+    },
   },
   {
     firstName: 'Valeria',
@@ -268,6 +376,12 @@ const userData: Prisma.CustomerCreateInput[] = [
         startDate: '2016-04-14T02:53:58Z',
       },
     },
+    family: {
+      create: {
+        firstName: 'Emory',
+        lastName: 'Keysel',
+      },
+    },
   },
 ];
 
@@ -275,6 +389,7 @@ async function main() {
   console.log(`Start seeding ...`);
   await prisma.policy.deleteMany({});
   await prisma.customer.deleteMany({});
+  
   for (const u of userData) {
     const user = await prisma.customer.create({
       data: u,

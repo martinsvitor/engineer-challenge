@@ -12,8 +12,8 @@ You need to implement both the frontend and backend for the following user story
 
 ### Acceptance criteria
 
-- Show only ACTIVE and PENDING policies.
-- Do not display any results if there are no matches.
-- The name search should return results matching the name of the customer or any of their family members.
-- The family members should be stored on a separate table that is linked to the policy.
-- Clearing the search should return the table to its original state.
+- Show only ACTIVE and PENDING policies. // Done
+- Do not display any results if there are no matches. // Done
+- The name search should return results matching the name of the customer or any of their family members. // Done
+- The family members should be stored on a separate table that is linked to the policy. // Done
+- Clearing the search should return the table to its original state. // Done

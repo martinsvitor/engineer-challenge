@@ -33,6 +33,7 @@ services:
       - db
     ports:
       - "4000:4000"
+      - "5555:5555"
 
   frontend:
     container_name: frontend
